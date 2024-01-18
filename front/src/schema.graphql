@@ -1,0 +1,27 @@
+schema {
+  mutation: RootMutationType
+  query: RootQueryType
+}
+
+type User {
+  firstname: String!
+  lastname: String!
+  email: String!
+  passwordHash: String!
+  id: ID!
+}
+
+type RootQueryType {
+  "Get all users"
+  allUsers: [User!]!
+}
+
+type RootMutationType {
+  "Create a user"
+  signupUser(
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+  ): User
+}

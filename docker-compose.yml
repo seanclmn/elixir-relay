@@ -1,0 +1,30 @@
+version: latest
+services:
+  # frontend:
+  #   build:
+  #     context: ./frontend/
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    # volumes:
+    #   - db_data:/var/lib/postgresql/data
+  # api:
+  #   container_name: phoenix_api
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - "4000:4000"
+  #   environment:
+  #     - DATABASE_URL=ecto://postgres:postgres@db/app_dev
+  #   command: mix phx.server
